@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
@@ -13,7 +12,6 @@ const navItems = [
 
 export const Navbar = () => {
   const { pathname } = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/10 bg-white/85 backdrop-blur-xl shadow-sm">
@@ -40,50 +38,13 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-sm transition hover:border-cyan-600 hover:text-cyan-600 md:hidden"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            <span className="text-2xl leading-none">
-              {menuOpen ? '✕' : '☰'}
-            </span>
-          </button>
-
-          <Link
-            to="/contacto"
-            className="hidden rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500 md:inline-flex"
-          >
-            Contáctanos
-          </Link>
-        </div>
+        <Link
+          to="/contacto"
+          className="rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500"
+        >
+          Contáctanos
+        </Link>
       </div>
-
-      {menuOpen && (
-        <div className="md:hidden border-t border-slate-200/10 bg-white/95 px-4 py-4 shadow-sm backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm font-medium text-slate-700">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`rounded-2xl px-4 py-3 transition ${pathname === item.to ? 'bg-cyan-50 text-cyan-700' : 'hover:bg-slate-100 hover:text-slate-900'}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              to="/contacto"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-cyan-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contáctanos
-            </Link>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

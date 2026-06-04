@@ -13,8 +13,7 @@ export const Hero = () => (
       />
 
     <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8">
-      {/* CAMBIO AQUÍ: Se agregó 'mx-auto' para centrar todo el bloque */}
-      <div className="mx-auto max-w-3xl space-y-6 text-center">
+      <div className="max-w-3xl space-y-6 text-center">
         <p className="text-sm uppercase tracking-[0.35em] text-cyan-300">Iglesia de Dios de la Profecía</p>
         <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
           Una comunidad viva de fe, servicio y encuentro.
