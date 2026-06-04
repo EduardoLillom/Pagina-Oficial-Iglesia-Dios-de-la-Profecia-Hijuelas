@@ -4,6 +4,7 @@ const navItems = [
   { to: '/', label: 'Inicio' },
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/ministerios', label: 'Ministerios' },
+  { to: '/galeria', label: 'Galería' },
   { to: '/horarios', label: 'Horarios' },
   { to: '/contacto', label: 'Contacto' },
   { to: '/construccion', label: 'Construcción' },

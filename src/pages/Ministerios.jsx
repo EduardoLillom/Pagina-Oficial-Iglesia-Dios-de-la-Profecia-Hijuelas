@@ -3,29 +3,24 @@ import SectionTitle from "../components/SectionTitle";
 
 const ministerios = [
   {
-    name: "Ministerio de Jóvenes",
-    description: "Encuentros, discipulado y servicio para los jóvenes que quieren crecer en su fe y vivir con propósito.",
-    details: "Participamos en actividades, grupos de crecimiento y proyectos sociales que fomentan la fraternidad y la misión.",
+    name: "Escuela Bíblica",
+    description: "Un espacio para profundizar en la Palabra de Dios para todas las edades.",
+    details: "Ofrecemos clases para niños, jóvenes y adultos, con un enfoque en el crecimiento espiritual y la aplicación práctica de las Escrituras.",
   },
   {
-    name: "Ministerio de Damas",
+    name: "Jovenes",
+    description: "Un espacio para acompañar a los jóvenes en su vida espiritual, familiar y comunitaria.",
+    details: "Cada semana nos reunimos para compartir la Palabra, orar juntos y vivir experiencias que fortalezcan su fe y su sentido de pertenencia a la comunidad.",
+  },
+  {
+    name: "Damas",
     description: "Un espacio para acompañar a las mujeres en su vida espiritual, familiar y comunitaria.",
-    details: "Ofrecemos estudios bíblicos, retiros y apoyo mutuo para fortalecer el llamado femenino en la iglesia.",
+    details: "Cada semana nos reunimos para compartir la Palabra, orar juntas y vivir experiencias que fortalezcan su fe y su sentido de pertenencia a la comunidad.",
   },
   {
-    name: "Ministerio de Música",
-    description: "Adoración musical para bendecir el culto y preparar corazones hacia la presencia de Dios.",
-    details: "Somos una familia de músicos y cantores que sirven con talento, excelencia y entrega en cada reunión.",
-  },
-  {
-    name: "Ministerio de Niños",
-    description: "Enseñanza bíblica y juegos diseñados para que los niños se encuentren con Jesús de forma alegre y segura.",
-    details: "Cada semana cuidamos, educamos y acompañamos a los más pequeños en su crecimiento espiritual.",
-  },
-  {
-    name: "Ministerio de Familias",
-    description: "Apoyo integral para parejas, padres e hijos con recursos que fortalecen el hogar cristiano.",
-    details: "Creamos espacios de consejería, capacitación y encuentro para vivir la familia según los principios bíblicos.",
+    name: "Varones",
+    description: "Un espacio para acompañar a los hombres en su vida espiritual, familiar y comunitaria.",
+    details: "Cada semana nos reunimos para compartir la Palabra, orar juntos y vivir experiencias que fortalezcan su fe y su sentido de pertenencia a la comunidad.",
   },
 ];
 
@@ -42,11 +37,6 @@ const Ministerios = () => {
           </div>
 
           <div className="rounded-4xl overflow-hidden shadow-2xl ring-1 ring-cyan-100/40">
-            <img
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80"
-              alt="Ministerios en acción"
-              className="h-full w-full object-cover"
-            />
           </div>
         </div>
 
