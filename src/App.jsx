@@ -6,6 +6,7 @@ import Ministerios from './pages/Ministerios';
 import Horarios from './pages/Horarios';
 import Contacto from './pages/Contacto';
 import Construccion from './pages/Construccion';
+import  Galeria  from './pages/Galeria';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/nosotros/:tab" element={<Nosotros />} />
           <Route path="/ministerios" element={<Ministerios />} />
+          <Route path="/galeria" element={<Galeria />} />
           <Route path="/horarios" element={<Horarios />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/construccion" element={<Construccion />} />
