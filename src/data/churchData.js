@@ -20,7 +20,8 @@ export const services = [
   {
     title: "Escuela Bíblica",
     time: "Domingos - 10:00 AM",
-    description: "Un espacio diseñado para profundizar en la Palabra de Dios para todas las edades."
+    description: "Un espacio diseñado para profundizar en la Palabra de Dios para todas las edades.",
+    accent: "border-cyan-500"
   },
   {
     title: "Adoración General",
@@ -31,6 +32,7 @@ export const services = [
   {
     title: "Oración y Doctrina",
     time: "Miércoles - 7:00 PM",
-    description: "Fortaleciendo nuestra fe y comunión con el Espíritu Santo en unidad."
+    description: "Fortaleciendo nuestra fe y comunión con el Espíritu Santo en unidad.",
+    accent: "border-emerald-500"
   }
 ];

@@ -1,76 +1,49 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+const navItems = [
+  { to: '/', label: 'Inicio' },
+  { to: '/nosotros', label: 'Nosotros' },
+  { to: '/ministerios', label: 'Ministerios' },
+  { to: '/horarios', label: 'Horarios' },
+  { to: '/contacto', label: 'Contacto' },
+  { to: '/construccion', label: 'Construcción' },
+];
 
 export const Navbar = () => {
-  const [isNosotrosOpen, setIsNosotrosOpen] = useState(false);
+  const { pathname } = useLocation();
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 bg-blue-900/90 backdrop-blur-md px-8 py-3 rounded-full flex items-center justify-center gap-6 z-50 shadow-2xl border border-yellow-600/30">
-      
-      <Link to="/" className="text-white text-sm font-medium uppercase hover:text-yellow-500 transition-colors leading-none">
-        Inicio
-      </Link>
-
-      {/* 
-          CLAVE: Añadimos "pb-8" y "-mb-8" para crear un puente invisible.
-          Esto hace que el área reactiva al mouse se extienda hacia abajo 
-          sin mover visualmente la barra.
-      */}
-      <div 
-        className="relative flex items-center h-full pb-8 -mb-8" 
-        onMouseEnter={() => setIsNosotrosOpen(true)}
-        onMouseLeave={() => setIsNosotrosOpen(false)}
-      >
-        <button className="text-white text-sm font-medium uppercase hover:text-yellow-500 transition-colors flex items-center gap-1 leading-none outline-none cursor-pointer">
-          Nosotros
-          <svg className={`w-4 h-4 transition-transform ${isNosotrosOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
-        {/* El Menú Flotante */}
-        {isNosotrosOpen && (
-          <div className="absolute top-[80%] left-0 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50">
-            <Link 
-              to="/nosotros/mision" 
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-              onClick={() => setIsNosotrosOpen(false)}
-            >
-              Nuestra Misión
-            </Link>
-            <Link 
-              to="/nosotros/quienes" 
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-              onClick={() => setIsNosotrosOpen(false)}
-            >
-              Quiénes somos
-            </Link>
-            <Link 
-              to="/ministerios" 
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-              onClick={() => setIsNosotrosOpen(false)}
-            >
-              Ministerios
-            </Link>
+    <header className="sticky top-0 z-50 border-b border-slate-200/10 bg-white/85 backdrop-blur-xl shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-cyan-600 text-lg font-extrabold text-white shadow-lg shadow-cyan-500/20">
+            IDP
           </div>
-        )}
+          <div className="hidden sm:block">
+            <p className="text-sm font-semibold text-slate-900">Iglesia IDP Hijuelas</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Fe, unidad y santidad</p>
+          </div>
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-4 text-sm font-medium text-slate-600">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className={`transition-colors ${pathname === item.to ? 'text-slate-900' : 'hover:text-cyan-600'}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <Link
+          to="/contacto"
+          className="rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500"
+        >
+          Contáctanos
+        </Link>
       </div>
-
-      <Link to="/horarios" className="text-white text-sm font-medium uppercase hover:text-yellow-500 transition-colors leading-none">
-        Horarios
-      </Link>
-      
-      <Link to="/contacto" className="text-white text-sm font-medium uppercase hover:text-yellow-500 transition-colors leading-none">
-        Contacto
-      </Link>
-
-      <Link to="/construccion" className="text-white text-sm font-medium uppercase hover:text-yellow-500 transition-colors leading-none">
-        Construcción
-      </Link>
-
-      <a href="#" className="bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm leading-none flex items-center">
-        ¡Ver en Vivo!
-      </a>
-    </nav>
+    </header>
   );
 };
