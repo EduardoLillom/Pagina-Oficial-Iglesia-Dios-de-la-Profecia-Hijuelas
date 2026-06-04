@@ -8,36 +8,36 @@ const tabs = [
   { id: "mision", label: "Nuestra misión" },
 ];
 
-            <img
-              src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=70"
-              alt="Iglesia reunida"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-    title: "Gente que procura la santidad",
-    text: "Nacimos del arrollador avivamiento de las reuniones campestres de santidad. El llamado a la santidad está profundamente arraigado en nuestras raíces.",
-  },
-  {
-    title: "Lleno del Espíritu",
-    text: "La promesa profética de que 'en los últimos días derramará Su Espíritu' sigue siendo una parte central de nuestro ADN mundial.",
-  },
-  {
-    title: "Abierto a todas las naciones",
-    text: "Nos aferramos al ideal de que la iglesia de Dios estaría compuesta por toda 'tribu, lengua, pueblo y nación'. Celebramos la diversidad.",
-  },
-  {
-    title: "Hacedor de discípulos",
-    text: "Por más de un siglo de ministerio, esta red familiar se ha comprometido con el mandato bíblico de la Gran Comisión.",
-  },
-  {
-    title: "Establecedor de iglesias",
-    text: "Las iglesias sanas que plantan nuevas iglesias contribuyen en gran medida a la difusión del evangelio en todo el mundo.",
-  },
-  {
-    title: "Unión cristiana",
-    text: "Nos proponemos cooperar con todos los que exaltan el nombre de Cristo y Su gran evangelio en un espíritu de unidad.",
-  },
-];
+  const misionPilares = [
+    {
+      title: "Que exalta a Cristo",
+      text: "Que Jesucristo se vea reflejado en todo lo que hagamos. Él es la Cabeza del Cuerpo y por lo tanto debe tener la preeminencia en todo.",
+    },
+    {
+      title: "Gente que procura la santidad",
+      text: "Nacimos del arrollador avivamiento de las reuniones campestres de santidad. El llamado a la santidad está profundamente arraigado en nuestras raíces.",
+    },
+    {
+      title: "Lleno del Espíritu",
+      text: "La promesa profética de que 'en los últimos días derramará Su Espíritu' sigue siendo una parte central de nuestro ADN mundial.",
+    },
+    {
+      title: "Abierto a todas las naciones",
+      text: "Nos aferramos al ideal de que la iglesia de Dios estaría compuesta por toda 'tribu, lengua, pueblo y nación'. Celebramos la diversidad.",
+    },
+    {
+      title: "Hacedor de discípulos",
+      text: "Por más de un siglo de ministerio, esta red familiar se ha comprometido con el mandato bíblico de la Gran Comisión.",
+    },
+    {
+      title: "Establecedor de iglesias",
+      text: "Las iglesias sanas que plantan nuevas iglesias contribuyen en gran medida a la difusión del evangelio en todo el mundo.",
+    },
+    {
+      title: "Unión cristiana",
+      text: "Nos proponemos cooperar con todos los que exaltan el nombre de Cristo y Su gran evangelio en un espíritu de unidad.",
+    },
+  ];
 
 const Nosotros = () => {
   const { tab } = useParams();

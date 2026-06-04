@@ -21,8 +21,7 @@ const Contacto = () => {
                 className="h-64 sm:h-80 md:h-96 w-full object-cover"
                 loading="lazy"
               />
-                  +56 9 1234 5678
-                </p>
+                <p className="mt-4 text-slate-600">+56 9 1234 5678</p>
                 <p className="mt-4 text-slate-600">
                   <span className="block font-medium text-slate-900">Correo:</span>
                   contacto@idiglesia.cl
