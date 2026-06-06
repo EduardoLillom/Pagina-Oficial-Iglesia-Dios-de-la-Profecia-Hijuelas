@@ -7,6 +7,7 @@ import Horarios from './pages/Horarios';
 import Contacto from './pages/Contacto';
 import Construccion from './pages/Construccion';
 import  Galeria  from './pages/Galeria';
+import DetalleMinisterio from './pages/DetalleMinisterio';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -21,9 +22,10 @@ function App() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/nosotros/:tab" element={<Nosotros />} />
           <Route path="/ministerios" element={<Ministerios />} />
-          <Route path="/galeria" element={<Galeria />} />
+          <Route path="/ministerios/:id" element={<DetalleMinisterio />} />
           <Route path="/horarios" element={<Horarios />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/galeria" element={<Galeria />} />
           <Route path="/construccion" element={<Construccion />} />
         </Routes>
       </MainLayout>
