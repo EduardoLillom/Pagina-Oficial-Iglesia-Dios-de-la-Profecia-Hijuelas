@@ -1,0 +1,127 @@
+---
+// src/components/Navbar.astro
+
+const pathname = Astro.url.pathname;
+
+interface NavItem {
+  to: string;
+  label: string;
+  matchPattern?: string; // Patrón opcional para rutas anidadas
+}
+
+const navItems: NavItem[] = [
+  { to: '/', label: 'Inicio' },
+  { to: '/nosotros', label: 'Nosotros' },
+  { to: '/contacto', label: 'Contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/10 bg-white/85 backdrop-blur-xl shadow-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
+    
+    <a href="/" class="flex items-center gap-3">
+        <div class="h-11 w-11 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center">
+            <img 
+            src="/logo.png" 
+            alt="Logo IDP Hijuelas" 
+            class="h-full w-full object-contain"
+            />
+        </div>
+        
+        <div class="flex flex-col min-w-0">
+            <p class="text-xs sm:text-sm font-semibold text-slate-900 truncate">
+            IDP Hijuelas
+            </p>
+            <p class="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.28em] text-slate-500 truncate">
+            Fe, unidad y santidad
+            </p>
+        </div>
+        </a>
+
+    <nav class="hidden md:flex items-center gap-4 text-sm font-medium text-slate-600">
+      {navItems.map((item) => {
+        const isActive = pathname === item.to || (item.matchPattern && pathname.startsWith(item.matchPattern));
+        return (
+          <a
+            href={item.to}
+            aria-current={isActive ? 'page' : undefined}
+            class={`transition-colors ${isActive ? 'text-slate-900 font-semibold' : 'hover:text-cyan-600'}`}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="/contacto"
+        class="hidden rounded-full bg-cyan-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500 md:inline-flex"
+      >
+        Contáctanos
+      </a>
+
+      <button
+        id="menu-toggle"
+        type="button"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-cyan-600 hover:text-cyan-600 md:hidden"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span id="menu-icon" class="text-xl">≡</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200/10 bg-white/95 shadow-sm">
+    <nav class="space-y-2 px-4 py-4 text-sm font-medium text-slate-600">
+      {navItems.map((item) => {
+        const isActive = pathname === item.to || (item.matchPattern && pathname.startsWith(item.matchPattern));
+        return (
+          <a
+            href={item.to}
+            class={`block rounded-xl px-3 py-3 transition-colors ${isActive ? 'bg-slate-100 text-slate-900 font-semibold' : 'hover:bg-slate-100 hover:text-cyan-600'}`}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+      <a
+        href="/contacto"
+        class="block rounded-full bg-cyan-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-cyan-600/20 transition hover:bg-cyan-500"
+      >
+        Contáctanos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function setupMenu() {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (toggleBtn && mobileMenu && menuIcon) {
+      toggleBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          toggleBtn.setAttribute('aria-expanded', 'true');
+          toggleBtn.setAttribute('aria-label', 'Cerrar menú');
+          menuIcon.textContent = '×';
+        } else {
+          mobileMenu.classList.add('hidden');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.setAttribute('aria-label', 'Abrir menú');
+          menuIcon.textContent = '≡';
+        }
+      });
+    }
+  }
+
+  // Ejecución inicial y soporte para transiciones de Astro
+  setupMenu();
+  document.addEventListener('astro:after-swap', setupMenu);
+</script>
