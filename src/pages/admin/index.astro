@@ -1,0 +1,15 @@
+---
+// src/pages/admin/dashboard.astro
+export const prerender = false; // Importante para que no sea estático
+---
+<html>
+  <body>
+    <h1>Panel de Administración</h1>
+    <p>¡Has ingresado correctamente!</p>
+    
+    <!-- El action debe coincidir con la ruta del archivo que creamos arriba -->
+    <form action="/api/auth/signout" method="GET">
+      <button type="submit">Cerrar Sesión</button>
+    </form>
+  </body>
+</html>
